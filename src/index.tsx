@@ -1,8 +1,8 @@
 import * as React from 'react';
-import *as ReactDOM from 'react-dom';
-import { Hello } from './components/hello';
+import * as ReactDOM from 'react-dom';
+import App from './App';
 
 ReactDOM.render(
-  <Hello name="WIIII"/>,
+  <App />,
   document.getElementById('app'),
 );
