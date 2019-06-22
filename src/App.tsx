@@ -1,14 +1,13 @@
 import * as React from 'react';
-import 'normalize.css';
-import { Hello } from './components/hello';
-import './static/main.scss';
+import { Navbar } from './components/navbar';
+import './static/scss/main.scss';
 
 export default class App extends React.Component {
   render() {
     return (
-      <div className="www">
-        <Hello name="WWW" />
-      </div>
+      <main className="container">
+        <Navbar />
+      </main>
     );
   }
 }
