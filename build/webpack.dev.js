@@ -1,14 +1,18 @@
+'use strict'
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+function pathResolve(dir) {
+  return path.resolve(__dirname, '../', dir);
+}
+
 module.exports = {
-  entry: path.resolve(__dirname, '../', 'src') + '/index.tsx',
+  entry: pathResolve('src') + '/index.tsx',
   output: {
-    path: path.resolve(__dirname, '../', 'dist'),
+    path: pathResolve('dist'),
     filename: 'bundle.js',
   },
-  devtool: 'source-map',
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
   },
@@ -23,23 +27,31 @@ module.exports = {
         enforce: 'pre',
         test: /\.js$/,
         loader: 'source-map-loader'
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' },
+        ]
       }
     ]
   },
-  // externals: {
-  //   'react': 'React',
-  //   'react-dom': 'ReactDOM',
-  // },
   mode: 'development',
+  devtool: 'source-map',
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: path.resolve(__dirname, '../', 'src') + '/index.html',
+      template: pathResolve('src') + '/index.html',
+      inject: true,
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new webpack.NamedModulesPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, '../', 'dist'),
+    contentBase: pathResolve('dist'),
     compress: true,
     port: 8080,
     open: true,
