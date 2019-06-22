@@ -36,8 +36,8 @@
     "typescript": "^3.4.5"
   },
   "scripts": {
-    "build": "webpack --config ./build/webpack.dev.js",
+    "build": "rm -rf ./dist && webpack --config ./build/webpack.dev.js",
     "server": "webpack-dev-server --config ./build/webpack.dev.js",
-    "clean": "rm -rf ./dist"
+    "lint": "tslint -c tslint.json -p tsconfig.json"
   }
 }
