@@ -35,7 +35,25 @@ module.exports = {
           { loader: 'css-loader' },
           { loader: 'sass-loader' },
         ]
-      }
+      },
+      {
+        test: /.(jpg)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]',
+              outputPath: './'
+            }
+          },
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              disable: true,
+            }
+          }
+        ]
+      },
     ]
   },
   mode: 'development',
@@ -43,7 +61,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: pathResolve('src') + '/index.html',
+      template: pathResolve('static') + '/index.html',
       inject: true,
     }),
     new webpack.HotModuleReplacementPlugin(),
