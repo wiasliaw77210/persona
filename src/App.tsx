@@ -4,7 +4,6 @@ import Navbar from './components/Navbar';
 import About from './components/About';
 import Snippet from './components/Snippet';
 import Contact from './components/Contact';
-import './static/scss/main.scss';
 
 export default class App extends React.Component {
   render() {
