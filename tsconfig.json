@@ -22,7 +22,8 @@
     "rootDir": "./"
   },
   "include": [
-    "./src/**/**/*.tsx"
+    "./src/**/**/*.tsx",
+    "./src/typings"
   ],
   "exclude": [
     "./node_modules"
