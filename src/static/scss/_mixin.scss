@@ -1,5 +1,0 @@
-@mixin BoxSizing($size: border-box) {
-  box-sizing: $size;
-  -moz-box-sizing: $size;
-  -webkit-box-sizing: $size;
-}
